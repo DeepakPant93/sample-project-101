@@ -60,6 +60,7 @@ init-repo: ## Initialize git repository
 	@git add .
 	@git commit -m "Initial commit"
 	@echo "🚀 Adding remote repository"
+	@git branch -M main
 	@git remote add origin git@github.com:$(GITHUB_USERNAME)/$(GITHUB_REPO).git || true
 	@echo "🚀 Pushing initial commit"
 	@git push -u origin main || true
