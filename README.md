@@ -8,8 +8,8 @@
 
 A simple project with the DVC integration
 
-- **Github repository**: <https://github.com/DeepakPant93/sample-project-101/>
-- **Documentation** <https://DeepakPant93.github.io/sample-project-101/>
+-   **Github repository**: <https://github.com/DeepakPant93/sample-project-101/>
+-   **Documentation** <https://DeepakPant93.github.io/sample-project-101/>
 
 ## Getting started with your project
 
@@ -38,11 +38,11 @@ To enable the code coverage reports, see [here](https://fpgmaas.github.io/cookie
 
 ## Releasing a new version
 
-- Create an API Token on [PyPI](https://pypi.org/).
-- Add the API Token to your projects secrets with the name `PYPI_TOKEN` by visiting [this page](https://github.com/DeepakPant93/sample-project-101/settings/secrets/actions/new).
-- Create a [new release](https://github.com/DeepakPant93/sample-project-101/releases/new) on Github.
-- Create a new tag in the form `*.*.*`.
-- For more details, see [here](https://fpgmaas.github.io/cookiecutter-poetry/features/cicd/#how-to-trigger-a-release).
+-   Create an API Token on [PyPI](https://pypi.org/).
+-   Add the API Token to your projects secrets with the name `PYPI_TOKEN` by visiting [this page](https://github.com/DeepakPant93/sample-project-101/settings/secrets/actions/new).
+-   Create a [new release](https://github.com/DeepakPant93/sample-project-101/releases/new) on Github.
+-   Create a new tag in the form `*.*.*`.
+-   For more details, see [here](https://fpgmaas.github.io/cookiecutter-poetry/features/cicd/#how-to-trigger-a-release).
 
 ---
 

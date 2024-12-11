@@ -40,7 +40,7 @@ bake-env: ## Install the poetry environment and set up pre-commit hooks
 			echo "Max retries reached. Exiting."; \
 			exit 1; \
 		fi; \
-		echo "Retrying make check ($$count/$$max_retries)..."; \
+		echo "Retrying make lint ($$count/$$max_retries)..."; \
 	done
 	@poetry shell
 

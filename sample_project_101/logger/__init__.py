@@ -48,7 +48,7 @@ import sys
 
 logging_str = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
 log_dir = "logs"
-log_filepath = os.path.join(log_dir,"sample-project-101.log")
+log_filepath = os.path.join(log_dir, "sample-project-101.log")
 os.makedirs(log_dir, exist_ok=True)
 
 
