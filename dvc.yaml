@@ -1,0 +1,5 @@
+# stages:
+#     download-data:
+#         cmd: dvc pull
+#         deps:
+#             - artifacts/data.txt

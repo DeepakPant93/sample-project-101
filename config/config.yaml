@@ -1,0 +1,39 @@
+artifacts_root: artifacts
+
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  source_URL:
+  local_data_file:
+  unzip_dir: artifacts/data_ingestion
+
+
+
+data_validation:
+  root_dir: artifacts/data_validation
+
+
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  data_path:
+  tokenizer_name:
+
+
+
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  data_path:
+  model_ckpt:
+  model_name:
+
+
+
+
+model_evaluation:
+  root_dir: artifacts/model_evaluation
+  data_path:
+  model_path:
+  tokenizer_path:
+  metric_file_name: artifacts/model_evaluation/metrics.csv

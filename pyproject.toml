@@ -1,0 +1,189 @@
+[tool.poetry]
+name = "sample_project_101"
+version = "0.0.1"
+description = "A simple project with the DVC integration"
+authors = ["Deepak Pant <deepak.93p@gmail.com>"]
+repository = "https://github.com/DeepakPant93/sample-project-101"
+documentation = "https://DeepakPant93.github.io/sample-project-101/"
+readme = "README.md"
+packages = [
+  {include = "sample_project_101"}
+]
+
+[tool.poetry.scripts]
+sample_project_101 = "sample_project_101.main:main"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+fastapi = "^0.100.0"  # Latest compatible version
+uvicorn = "^0.23.0"  # For running FastAPI apps
+fastapi-health = "^0.4.0"  # Health check for FastAPI
+#pyyaml = "^6.0.2"
+#python-box = "^7.2.0"
+#ensure = "^1.0.4"
+#joblib = "^1.3.2"  # Parallel processing and caching
+#python-dotenv = "^1.0.0"  # Manage environment variables
+#PyPDF2 = "^3.0.0"  # For PDF manipulation
+#pydantic = "^2.0.0"  # Data validation and settings management
+#tensorflow = "^2.14.0"  # Tensorflow for machine learning
+#numpy = "^1.26.0"  # Numerical computation
+#pandas = "^2.1.0"  # Data manipulation and analysis
+#scikit-learn = "^1.3.1"  # Machine learning library
+#seaborn = "^0.13.0"  # Statistical data visualization
+#matplotlib = "^3.8.0"  # Data visualization
+#scipy = "^1.11.3"  # Scientific computation
+
+
+
+[tool.poetry.group.dev.dependencies]
+deptry = "^0.16.2"  # For dependency management
+mypy = "^1.5.1"  # Static type checking
+pre-commit = "^3.4.0"  # Pre-commit hooks
+tox = "^4.11.1"  # Testing in multiple environments
+ipykernel = "^6.25.0"  # Jupyter kernel
+black = "^23.9.0"  # Code formatter
+build = "^1.0.0"  # Build management
+bump-my-version = "^0.28.1"  # Bump versions automatically
+codespell = "^2.2.5"  # Spell checking in code
+wheel = "^0.41.0"  # Build wheels
+twine = "^4.0.0"  # Publish packages
+pytest-runner = "^6.0.0"  # Running tests via `python setup.py test`
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.5.0"  # Documentation site generator
+sphinx = "^7.2.0"  # Documentation tool
+mkdocs-git-revision-date-plugin = "^0.3.2"  # Show revision dates
+mkdocs-git-revision-date-localized-plugin = "^1.3.0"  # Localized dates
+mkdocs-jupyter = ">=0.25.1"  # For Jupyter Notebook integration
+mkdocs-pdf-export-plugin = "^0.5.10"  # PDF export
+mkdocs-material = ">=9.1.3"  # MkDocs Material theme
+mkdocstrings-crystal = "^0.3.0"  # Mkdocstrings for Crystal
+pygments = "^2.16.0"  # Syntax highlighting
+pymdown-extensions = "^10.0"  # Markdown extensions
+nbconvert = "^7.7.0"  # Convert notebooks to other formats
+nbformat = "^5.9.0"  # Notebook format support
+livereload = "^2.6.3"  # Live reload for MkDocs
+watchdog = "^3.0.0"  # File monitoring
+mkdocstrings = {extras = ["python"], version = "^0.27.0"}  # Auto-generate documentation from docstrings
+mkdocs-minify-plugin = "^0.8.0"  # Minify HTML
+
+[tool.poetry.group.test.dependencies]
+pytest-mock = "^3.11.0"  # Mocking in tests
+factory-boy = "^3.3.1"  # Test data generation
+pytest-asyncio = "^0.21.0"  # Async testing support
+pytest-xdist = "^3.3.1"  # Parallel test execution
+freezegun = "^1.2.0"  # Mock datetime
+pytest = "^7.2.0"  # Testing framework
+allure-pytest = "^2.13.0"  # Reporting for pytest
+pytest-sugar = "^0.9.7"  # Better test output
+pytest-cov = "^4.0.0"  # Test coverage reports
+
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.mypy]
+files = ["sample_project_101"]
+disallow_untyped_defs = true
+disallow_any_unimported = true
+no_implicit_optional = true
+check_untyped_defs = true
+warn_return_any = true
+warn_unused_ignores = true
+show_error_codes = true
+pretty = true
+show_traceback = true
+
+
+[[tool.mypy.overrides]]
+module = [
+    "joblib.*",
+    "yaml.*",
+    "ensure.*",
+    "sample_project_101.main"
+]
+ignore_missing_imports = true
+ignore_errors = true
+
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+fix = true
+select = [
+    # flake8-2020
+    "YTT",
+    # flake8-bandit
+    "S",
+    # flake8-bugbear
+    "B",
+    # flake8-builtins
+    "A",
+    # flake8-comprehensions
+    "C4",
+    # flake8-debugger
+    "T10",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+    # mccabe
+    "C90",
+    # pycodestyle
+    "E", "W",
+    # pyflakes
+    "F",
+    # pygrep-hooks
+    "PGH",
+    # pyupgrade
+    "UP",
+    # ruff
+    "RUF",
+    # tryceratops
+    "TRY",
+]
+ignore = [
+    # LineTooLong
+    "E501",
+    # DoNotAssignLambda
+    "E731",
+    # Possible binding to all interfaces - Require for Docker container
+    "S104"
+]
+
+[tool.ruff.format]
+preview = true
+
+[tool.coverage.report]
+skip_empty = true
+
+[tool.coverage.run]
+branch = true
+source = ["sample_project_101"]
+
+[tool.ruff.per-file-ignores]
+"tests/*" = ["S101"]
+
+[tool.bumpversion]
+current_version = "0.0.2"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "sample_project_101/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[tool.deptry]
+exclude = ["research", "tests", "docs", ".venv", "venv", "__pycache__", ".ruff_cache", ".pytest_cache", ".mypy_cache", ".coverage", ".git", "build", "dist", ".github", "site", "config"]
