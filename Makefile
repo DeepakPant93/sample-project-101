@@ -185,7 +185,7 @@ lint: ## Run code quality tools
 .PHONY: test
 test: ## Run tests with pytest
 	@echo "🚀 Running tests with pytest"
-	@poetry run pytest --cov --cov-config=pyproject.toml --cov-report=xml
+	@poetry run pytest --cov --cov-config=pyproject.toml --cov-report=term-missing
 
 # =============================
 # Build and Release
