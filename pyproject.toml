@@ -43,11 +43,11 @@ tox = "^4.11.1"  # Testing in multiple environments
 ipykernel = "^6.25.0"  # Jupyter kernel
 black = "^23.9.0"  # Code formatter
 build = "^1.0.0"  # Build management
-bump-my-version = "^0.28.1"  # Bump versions automatically
 codespell = "^2.2.5"  # Spell checking in code
 wheel = "^0.41.0"  # Build wheels
 twine = "^4.0.0"  # Publish packages
 pytest-runner = "^6.0.0"  # Running tests via `python setup.py test`
+bump-my-version = "^0.28.2"  # Version bumping
 
 
 [tool.poetry.group.docs.dependencies]
@@ -201,6 +201,11 @@ replace = 'version = "{new_version}"'
 
 [[tool.bumpversion.files]]
 filename = "sample_project_101/__init__.py"
+search = '__version__ = "{current_version}"'
+replace = '__version__ = "{new_version}"'
+
+[[tool.bumpversion.files]]
+filename = "sample_project_101/main.py"
 search = '__version__ = "{current_version}"'
 replace = '__version__ = "{new_version}"'
 
