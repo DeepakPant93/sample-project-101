@@ -199,6 +199,11 @@ bake: clean-build ## Build wheel file using poetry
 clean-bake: ## Clean build artifacts
 	@rm -rf dist
 
+.PHONY: bump
+bump: ## Bump project version
+	@echo "🚀 Bumping version"
+	@poetry run bump-my-version bump patch
+
 .PHONY: publish
 publish: ## Publish a release to PyPI
 	@echo "🚀 Publishing: Dry run"

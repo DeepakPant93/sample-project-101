@@ -1,10 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, responses
 from fastapi.openapi.utils import get_openapi
 from fastapi_health import health
 
 from sample_project_101.routes.router import router
 
-__version__ = "0.0.2"
+__version__ = "0.0.3"
 
 app = FastAPI(
     title="sample-project-101 APIs",
@@ -18,6 +18,13 @@ app = FastAPI(
 app = FastAPI()
 
 
+# Default route redirects to docs
+@app.get("/", include_in_schema=False)
+async def root():
+    return responses.RedirectResponse("/docs")
+
+
+# Health Check
 async def health_check():
     return {"status": "healthy"}
 
