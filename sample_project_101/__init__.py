@@ -1,4 +1,4 @@
-__version__ = "0.0.5"
+__version__ = "0.0.6"
 
 """
 This project is a Data Science application built with FastAPI, designed to facilitate model training, prediction, and data processing. The application uses Poetry for dependency management and follows modular design principles to ensure scalability and maintainability.
