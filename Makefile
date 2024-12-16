@@ -14,6 +14,7 @@ APP_ENV_NAME = $(APP_NAME)-env
 DATASOURCE_ID = 1isRnM6FiyMuE8l8ojWD-yzWHe3AdiNFX
 GCLOUD_PROJECT_ID = $(shell gcloud config get-value project)
 SERVICE_ACCOUNT_NAME = $(PROJECT_NAME)-dvcsa
+VERSION_BUMP = patch
 
 # =============================
 # Help (Default Target)
@@ -202,7 +203,7 @@ clean-bake: ## Clean build artifacts
 .PHONY: bump
 bump: ## Bump project version
 	@echo "🚀 Bumping version"
-	@poetry run bump-my-version bump patch
+	@poetry run bump-my-version bump $(VERSION_BUMP)
 
 .PHONY: publish
 publish: ## Publish a release to PyPI
