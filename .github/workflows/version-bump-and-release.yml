@@ -57,3 +57,4 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
                   event-type: package-release
+                  client-payload: '{"version": "${{ steps.bump.outputs.NEW_TAG }}"}'

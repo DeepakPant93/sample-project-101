@@ -20,7 +20,15 @@ jobs:
 
             - name: Export tag
               id: vars
-              run: echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
+              run: |
+                  if [ "${{ github.event.client_payload.version }}" != "" ]; then
+                    echo "tag=${{ github.event.client_payload.version }}" >> $GITHUB_OUTPUT
+                  elif [ "${{ github.event.inputs.version }}" != "" ]; then
+                    echo "tag=${GITHUB_REF#refs/*/}" >> $GITHUB_OUTPUT
+                  else
+                    echo "No version provided"
+                    exit 1
+                  fi
 
             - name: Build and publish
               run: |
