@@ -4,6 +4,8 @@ on:
     release:
         types: [published]
         branches: [main]
+    repository_dispatch:
+        types: [package-release]
 
 jobs:
     deploy-docs:

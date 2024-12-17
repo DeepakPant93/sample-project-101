@@ -5,6 +5,8 @@ on:
     release:
         types: [published]
         branches: [main]
+    repository_dispatch:
+        types: [package-release]
 
 env:
     DOCKER_IMAGE: deepak93p/sample_project_101 # Replace with your DockerHub image

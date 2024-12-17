@@ -192,7 +192,7 @@ test: ## Run tests with pytest
 # Build and Release
 # =============================
 .PHONY: bake
-bake: clean-build ## Build wheel file using poetry
+bake: clean-bake ## Build wheel file using poetry
 	@echo "🚀 Creating wheel file"
 	@poetry build
 
