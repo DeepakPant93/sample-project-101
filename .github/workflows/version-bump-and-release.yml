@@ -1,4 +1,4 @@
-name: Version Bump and Release
+name: Version Bump and Create Release
 
 on:
     workflow_dispatch:
@@ -25,23 +25,10 @@ jobs:
                   fetch-depth: 0
                   token: ${{ secrets.GITHUB_TOKEN }}
 
-            - name: Set up Python
-              uses: actions/setup-python@v5
+            - name: Set up the environment
+              uses: ./.github/actions/setup-poetry-env
               with:
                   python-version: "3.12"
-
-            - name: Install Poetry
-              run: |
-                  curl -sSL https://install.python-poetry.org | python - -y
-                  echo "$HOME/.local/bin" >> $GITHUB_PATH
-
-            - name: Install dependencies
-              run: |
-                  poetry config virtualenvs.in-project true
-                  poetry install
-
-            - name: Install bump-my-version
-              run: poetry add bump-my-version
 
             - name: Configure Git
               run: |
@@ -50,7 +37,7 @@ jobs:
 
             - name: Bump Version
               run: |
-                  poetry run bump-my-version ${{ github.event.inputs.bump_type }}
+                  poetry run bump-my-version bump ${{ github.event.inputs.bump_type }}
 
             - name: Push changes
               run: |
