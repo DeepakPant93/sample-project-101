@@ -36,8 +36,10 @@ jobs:
                   git config --global user.email 'actions@github.com'
 
             - name: Bump Version
+              id: bump
               run: |
                   poetry run bump-my-version bump ${{ github.event.inputs.bump_type }}
+                  echo "NEW_TAG=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
             - name: Push changes
               run: |
@@ -48,4 +50,4 @@ jobs:
               uses: softprops/action-gh-release@v2
               with:
                   generate_release_notes: true
-                  tag_name: ${{ github.ref_name }}
+                  tag_name: ${{ steps.bump.outputs.NEW_TAG }}
