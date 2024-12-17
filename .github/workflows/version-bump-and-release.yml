@@ -51,3 +51,9 @@ jobs:
               with:
                   generate_release_notes: true
                   tag_name: ${{ steps.bump.outputs.NEW_TAG }}
+
+            - name: Trigger Package Publish
+              uses: peter-evans/repository-dispatch@v3
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  event-type: package-release
